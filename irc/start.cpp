@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sys/socket.h>
-#include <arpa/inet.h>
+#include <netinet/in.h>
 #include <unistd.h>
 
 int main() {
@@ -17,7 +17,7 @@ int main() {
 
 	// Sunucu adres ve portunu ayarlama
 	sockaddr_in serverAddress;
-	serverAddress.sin_family = AF_INET;
+	serverAddress.sin_family = AF_INET; // Network type IPv4
 	serverAddress.sin_addr.s_addr = inet_addr(serverIP.c_str());
 	serverAddress.sin_port = htons(serverPort);
 
